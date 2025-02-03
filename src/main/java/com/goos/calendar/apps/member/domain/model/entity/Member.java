@@ -16,10 +16,10 @@ public class Member {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "user_id", nullable = false)
+    @Column(name = "member_id", nullable = false)
     private String MemberId;
 
-    @Column(name = "user_name", nullable = false)
+    @Column(name = "member_name", nullable = false)
     private String MemberName;
 
     @Column(name = "phone_number", nullable = false)
