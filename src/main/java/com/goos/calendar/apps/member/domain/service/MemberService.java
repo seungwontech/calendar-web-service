@@ -14,7 +14,7 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     public MemberInfo createMember(CreateMemberCommand command) {
-        Member member = Member.create(command.memberId(), command.memberName(), command.phoneNumber(), command.email());
+        Member member = Member.create(command.memberId(), command.memberPw(), command.memberName(), command.phoneNumber(), command.email());
         Member savedmember = memberRepository.save(member);
         return MemberInfo.from(savedmember);
     }

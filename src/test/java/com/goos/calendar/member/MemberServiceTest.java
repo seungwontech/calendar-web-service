@@ -33,8 +33,8 @@ public class MemberServiceTest {
     @Test
     public void testCreateMember() {
         // given
-        CreateMemberCommand createMemberCommand = new CreateMemberCommand("member123", "John Doe", "1234567890", "john.doe@example.com");
-        Member savedMember = Member.of(1L, "member123", "John Doe", "1234567890", "john.doe@example.com", LocalDateTime.now());
+        CreateMemberCommand createMemberCommand = new CreateMemberCommand("member123", "a1234", "John Doe", "1234567890", "john.doe@example.com");
+        Member savedMember = Member.of(1L, "member123", "a1234", "John Doe", "1234567890", "john.doe@example.com", LocalDateTime.now());
         when(memberRepository.save(any(Member.class))).thenReturn(savedMember);
 
         // when

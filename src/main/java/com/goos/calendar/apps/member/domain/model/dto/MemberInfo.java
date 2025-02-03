@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 public record MemberInfo(
         Long id
         , String memberId
+        , String memberPw
         , String memberName
         , String phoneNumber
         , String email
@@ -15,6 +16,7 @@ public record MemberInfo(
         return new MemberInfo(
                 member.getId()
                 , member.getMemberId()
+                , member.getMemberPw()
                 , member.getMemberName()
                 , member.getPhoneNumber()
                 , member.getEmail()
