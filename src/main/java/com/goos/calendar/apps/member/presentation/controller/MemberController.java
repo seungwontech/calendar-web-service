@@ -20,7 +20,7 @@ public class MemberController {
     private final MemberService userService;
 
     @PostMapping
-    public ResponseEntity<CreateMemberResponse> createUser(@RequestBody CreateMemberRequest request){
+    public ResponseEntity<CreateMemberResponse> createMember(@RequestBody CreateMemberRequest request){
         CreateMemberCommand command = request.toCommand();
         MemberInfo result = userService.createUser(command);
         return ResponseEntity.ok(CreateMemberResponse.from(result));

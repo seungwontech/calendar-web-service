@@ -19,7 +19,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class UserServiceTest {
+public class MemberServiceTest {
 
     @Mock
     private MemberRepository memberRepository;
@@ -31,7 +31,7 @@ public class UserServiceTest {
     private MemberInfo memberInfo;
 
     @Test
-    public void testCreateUser() {
+    public void testCreateMember() {
         // given
         CreateMemberCommand createMemberCommand = new CreateMemberCommand("user123", "John Doe", "1234567890", "john.doe@example.com");
         Member savedMember = Member.of(1L, "user123", "John Doe", "1234567890", "john.doe@example.com", LocalDateTime.now());
