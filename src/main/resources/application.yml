@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: calendar
+  datasource:
+    url: jdbc:mariadb://localhost:23306/calendar
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password: sangs#1234
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL5Dialect
+      ddl-auto:  none #update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    generate-ddl: false #true
+    show-sql: true
+    defer-datasource-initialization: true
