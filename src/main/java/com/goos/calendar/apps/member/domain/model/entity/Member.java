@@ -17,10 +17,10 @@ public class Member {
     private Long id;
 
     @Column(name = "member_id", nullable = false)
-    private String MemberId;
+    private String memberId;
 
     @Column(name = "member_name", nullable = false)
-    private String MemberName;
+    private String memberName;
 
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
@@ -31,12 +31,12 @@ public class Member {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-    public static Member of(Long id, String userId, String userName, String phoneNumber, String email, LocalDateTime createdAt) {
-        return new Member(id, userId, userName, phoneNumber, email, createdAt);
+    public static Member of(Long id, String memberId, String memberName, String phoneNumber, String email, LocalDateTime createdAt) {
+        return new Member(id, memberId, memberName, phoneNumber, email, createdAt);
     }
 
-    public static Member create(String userId, String userName, String phoneNumber, String email) {
-        return new Member(null, userId, userName, phoneNumber, email, LocalDateTime.now());
+    public static Member create(String memberId, String memberName, String phoneNumber, String email) {
+        return new Member(null, memberId, memberName, phoneNumber, email, LocalDateTime.now());
     }
 
 }

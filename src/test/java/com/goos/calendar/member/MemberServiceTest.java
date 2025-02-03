@@ -1,4 +1,4 @@
-package com.goos.calendar.user;
+package com.goos.calendar.member;
 
 import com.goos.calendar.apps.member.domain.model.dto.MemberInfo;
 import com.goos.calendar.apps.member.domain.model.dto.command.CreateMemberCommand;
@@ -33,16 +33,16 @@ public class MemberServiceTest {
     @Test
     public void testCreateMember() {
         // given
-        CreateMemberCommand createMemberCommand = new CreateMemberCommand("user123", "John Doe", "1234567890", "john.doe@example.com");
-        Member savedMember = Member.of(1L, "user123", "John Doe", "1234567890", "john.doe@example.com", LocalDateTime.now());
+        CreateMemberCommand createMemberCommand = new CreateMemberCommand("member123", "John Doe", "1234567890", "john.doe@example.com");
+        Member savedMember = Member.of(1L, "member123", "John Doe", "1234567890", "john.doe@example.com", LocalDateTime.now());
         when(memberRepository.save(any(Member.class))).thenReturn(savedMember);
 
         // when
-        MemberInfo result = memberService.createUser(createMemberCommand);
+        MemberInfo result = memberService.createMember(createMemberCommand);
 
         // then
         assertNotNull(result);
-        assertEquals("John Doe", result.userName());
+        assertEquals("John Doe", result.memberName());
         assertEquals(1L, result.id());
     }
 }

@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/member")
 public class MemberController {
 
-    private final MemberService userService;
+    private final MemberService memberService;
 
     @PostMapping
     public ResponseEntity<CreateMemberResponse> createMember(@RequestBody CreateMemberRequest request){
         CreateMemberCommand command = request.toCommand();
-        MemberInfo result = userService.createUser(command);
+        MemberInfo result = memberService.createMember(command);
         return ResponseEntity.ok(CreateMemberResponse.from(result));
     }
 
