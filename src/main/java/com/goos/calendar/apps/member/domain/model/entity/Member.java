@@ -17,10 +17,10 @@ public class Member {
     private Long id;
 
     @Column(name = "user_id", nullable = false)
-    private String userId;
+    private String MemberId;
 
     @Column(name = "user_name", nullable = false)
-    private String userName;
+    private String MemberName;
 
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
