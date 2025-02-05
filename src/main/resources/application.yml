@@ -16,3 +16,5 @@ spring:
     generate-ddl: false #true
     show-sql: true
     defer-datasource-initialization: true
+  jwt:
+    secret:

@@ -1,5 +1,6 @@
 package com.goos.calendar.config;
 
+import com.goos.calendar.apps.jwt.JWTUtil;
 import com.goos.calendar.apps.jwt.LoginFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -21,6 +22,8 @@ public class SecurityConfig {
 
     //AuthenticationManager가 인자로 받을 AuthenticationConfiguraion 객체 생성자 주입
     private final AuthenticationConfiguration authenticationConfiguration;
+
+    private final JWTUtil jwtUtil;
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
@@ -44,7 +47,7 @@ public class SecurityConfig {
         http.httpBasic(AbstractHttpConfigurer::disable);
         //경로별 인가 작업
         http.authorizeHttpRequests((auth) -> auth.requestMatchers("api/login", "/", "api/member").permitAll().requestMatchers("/admin").hasRole("ADMIN").anyRequest().authenticated());
-        http.addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration)), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil), UsernamePasswordAuthenticationFilter.class);
         //세션 설정
         http.sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
