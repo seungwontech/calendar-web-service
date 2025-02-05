@@ -42,4 +42,8 @@ public class Member {
         return new Member(null, memberPw, memberName, phoneNumber, email, "ROLE_ADMIN", LocalDateTime.now());
     }
 
+    public static Member ofEmailAndRole(String email, String role) {
+        return new Member(null, "tempPassword", "Unknown", "000-0000-0000", email, role, LocalDateTime.now());
+    }
+
 }
