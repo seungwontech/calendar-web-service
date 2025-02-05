@@ -4,7 +4,7 @@ import com.goos.calendar.apps.member.domain.model.dto.MemberInfo;
 import com.goos.calendar.apps.member.domain.model.dto.command.CreateMemberCommand;
 import com.goos.calendar.apps.member.domain.model.entity.Member;
 import com.goos.calendar.apps.member.domain.service.MemberService;
-import com.goos.calendar.apps.member.repository.MemberRepository;
+import com.goos.calendar.apps.member.infra.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
