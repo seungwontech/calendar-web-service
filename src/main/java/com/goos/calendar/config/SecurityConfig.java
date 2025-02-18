@@ -46,9 +46,10 @@ public class SecurityConfig {
         http.formLogin(AbstractHttpConfigurer::disable);
         //http basic 인증 방식 disable
         http.httpBasic(AbstractHttpConfigurer::disable);
+
         http.addFilterBefore(new JWTFilter(jwtUtil), LoginFilter.class);
         //경로별 인가 작업
-        http.authorizeHttpRequests((auth) -> auth.requestMatchers("api/login", "/", "api/member").permitAll().requestMatchers("/admin").hasRole("ADMIN").anyRequest().authenticated());
+        http.authorizeHttpRequests((auth) -> auth.requestMatchers("/api/login", "/", "/api/member").permitAll().requestMatchers("/admin").hasRole("ADMIN").anyRequest().authenticated());
         http.addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil), UsernamePasswordAuthenticationFilter.class);
         //세션 설정
         http.sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));

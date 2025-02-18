@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "member_id")
     private Long id;
 
     @Column(name = "member_pw", nullable = false)
